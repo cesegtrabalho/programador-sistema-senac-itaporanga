@@ -1,0 +1,15 @@
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.AssemblyInfoInputs.cache
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.AssemblyInfo.cs
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.csproj.CoreCompileInputs.cache
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.sourcelink.json
+/workspaces/programador-sistema-senac-itaporanga/Aula1/bin/Debug/net10.0/Aula1
+/workspaces/programador-sistema-senac-itaporanga/Aula1/bin/Debug/net10.0/Aula1.deps.json
+/workspaces/programador-sistema-senac-itaporanga/Aula1/bin/Debug/net10.0/Aula1.runtimeconfig.json
+/workspaces/programador-sistema-senac-itaporanga/Aula1/bin/Debug/net10.0/Aula1.dll
+/workspaces/programador-sistema-senac-itaporanga/Aula1/bin/Debug/net10.0/Aula1.pdb
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.dll
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/refint/Aula1.dll
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.pdb
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/Aula1.genruntimeconfig.cache
+/workspaces/programador-sistema-senac-itaporanga/Aula1/obj/Debug/net10.0/ref/Aula1.dll
