@@ -2,7 +2,7 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Questao01();
     }
 
     private static void Questao01()
@@ -18,7 +18,7 @@
         int idade;
         Console.WriteLine("Informe a sua idade");
         idade = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine($"Você tem {idade} anos.")
+        Console.WriteLine($"Você tem {idade} anos.");
     }
 
     private static void Questao3()
@@ -50,7 +50,7 @@
         string nome;
         Console.WriteLine("Informe o seu nome completo");
         nome = Console.ReadLine();
-        Console.WriteLine($"Seu nome completo é {nome}");
+        Console.WriteLine($"O seu nome completo é {nome}");
     }
 
     private static void Questao7()
@@ -59,5 +59,5 @@
         Console.WriteLine("Informe qual a sua série/ano");
         serieAno = Console.ReadLine();
         Console.WriteLine($"A sua série/ano é {serieAno}");
-    }   
+    }
 }
