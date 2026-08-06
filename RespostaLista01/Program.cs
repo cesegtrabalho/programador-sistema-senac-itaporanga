@@ -134,7 +134,7 @@
         Console.WriteLine($"Nome: {nome}\nIdade: {idade} anos\nCidade: {cidade}");
     }
 
-    privat static void Questao16()
+    private static void Questao16()
     {
         string nomeJogador, posicao;
         int numeroCamisa;
@@ -142,7 +142,7 @@
         nomeJogador = Console.ReadLine();
         Console.WriteLine("Informe o número da camisa");
         numeroCamisa = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Informe a posição do jogador")
+        Console.WriteLine("Informe a posição do jogador");
         posicao = Console.ReadLine();
         Console.WriteLine($"O jogador {nomeJogador}, atua com a camisa número {numeroCamisa} e joga na posição {posicao}");
     }
