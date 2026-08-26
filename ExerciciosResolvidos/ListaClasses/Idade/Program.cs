@@ -28,6 +28,11 @@
         {
             Console.WriteLine($"O cliente por nome {Nome} tem {Convert.ToInt32(DateTime.Now.Year.ToString()) - Convert.ToInt32(DataNascimento.Year.ToString())} anos de idade");
         }
+
+        public void MostrarIdade3()
+        {
+            Console.WriteLine($"O cliente por nome {Nome} tem {DateTime.Now.Date - DataNascimento.Date} anos de idade");
+        }
     }
 
     private static void Main(string[] args)
@@ -36,6 +41,6 @@
 
         cliente.CadastrarClientes();
 
-        cliente.MostrarIdade();
+        cliente.MostrarIdade3();
     }
 }
