@@ -49,7 +49,7 @@
                 Console.WriteLine();
                 Console.WriteLine("1 - Cadastrar Material\n2 - Listar Materiais\n3 - Exibir resumo do estoque\n4 - Exibir informações do sistema\n0 - Encerrar");
                 Console.WriteLine();
-                Console.WriteLine("Digita a opção desejada:");
+                Console.WriteLine("Digite a opção desejada:");
                 Opcao = Convert.ToInt32(Console.ReadLine());
                 Executando = true;
 
