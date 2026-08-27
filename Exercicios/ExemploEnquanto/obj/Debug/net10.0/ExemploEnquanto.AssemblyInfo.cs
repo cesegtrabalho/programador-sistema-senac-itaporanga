@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExemploEnquanto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f25aa43d90447ed004f39a067704442c3fd712e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e14c5824f326e1c7553c04dab0b8c69df78d3c9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExemploEnquanto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExemploEnquanto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
