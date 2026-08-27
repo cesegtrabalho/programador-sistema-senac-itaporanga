@@ -1,0 +1,15 @@
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/bin/Debug/net10.0/SistemaControleMateriais
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/bin/Debug/net10.0/SistemaControleMateriais.deps.json
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/bin/Debug/net10.0/SistemaControleMateriais.runtimeconfig.json
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/bin/Debug/net10.0/SistemaControleMateriais.dll
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/bin/Debug/net10.0/SistemaControleMateriais.pdb
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.AssemblyInfoInputs.cache
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.AssemblyInfo.cs
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.csproj.CoreCompileInputs.cache
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.sourcelink.json
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.dll
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/refint/SistemaControleMateriais.dll
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.pdb
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/SistemaControleMateriais.genruntimeconfig.cache
+/workspaces/programador-sistema-senac-itaporanga/ExerciciosResolvidos/SistemaControleMateriais/obj/Debug/net10.0/ref/SistemaControleMateriais.dll
