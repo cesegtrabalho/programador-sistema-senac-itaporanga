@@ -2,6 +2,7 @@
 {
     public class Materiais
     {
+        public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Categoria { get; set; }
         public int Quantidade { get; set; }
@@ -9,6 +10,7 @@
 
         public void ExibirDados()
         {
+            Console.WriteLine($"Código: {Codigo}");
             Console.WriteLine($"Nome: {Nome}");
             Console.WriteLine($"Categoria: {Categoria}");
             Console.WriteLine($"Quantidade: {Quantidade}");
@@ -47,7 +49,7 @@
                 Console.Clear();
                 Console.WriteLine("=====================\nCONTROLE DE MATERIAIS TECHSCHOOL\n=====================");
                 Console.WriteLine();
-                Console.WriteLine("1 - Cadastrar Material\n2 - Listar Materiais\n3 - Exibir resumo do estoque\n4 - Exibir informações do sistema\n0 - Encerrar");
+                Console.WriteLine("1 - Cadastrar Material\n2 - Alterar material por código\n3 - Remover material\n4 - Listar Materiais\n5 - Exibir resumo do estoque\n6 - Exibir informações do sistema\n0 - Encerrar");
                 Console.WriteLine();
                 Console.WriteLine("Digite a opção desejada:");
                 Opcao = Convert.ToInt32(Console.ReadLine());
@@ -59,12 +61,18 @@
                         CadastrarMaterial();
                         break;
                     case 2:
-                        ListarMateriais();
+                        AlterarMaterial();
                         break;
                     case 3:
-                        ExibirResumo();
+                        RemoverMaterial();
                         break;
                     case 4:
+                        ListarMateriais();
+                        break;
+                    case 5:
+                        ExibirResumo();
+                        break;
+                    case 6:
                         ExibirInformacoes();
                         break;
                     case 0:
@@ -83,50 +91,149 @@
 
             do
             {
+                Console.Clear();
+                Materiais material = new Materiais();
+                Console.WriteLine("Digite o código do material:");
+                material.Codigo = Convert.ToInt32(Console.ReadLine());
+                
                 Console.WriteLine("Digite o nome do material:");
-                string nome = Console.ReadLine();
-                if (nome == "")
+                material.Nome = Console.ReadLine();
+                if (material.Nome == "")
                 {
                     Console.WriteLine("Nome do material não pode ser vazio.");
                     return;
                 }
 
                 Console.WriteLine("Digite a categoria do material:");
-                string categoria = Console.ReadLine();
-                if (categoria == "")
+                material.Categoria = Console.ReadLine();
+                if (material.Categoria == "")
                 {
                     Console.WriteLine("Categoria do material não pode ser vazio.");
                     return;
                 }
                 
                 Console.WriteLine("Digite a quantidade do material:");
-                int quantidade = int.Parse(Console.ReadLine());
-                if (quantidade < 0)
+                material.Quantidade = Convert.ToInt32(Console.ReadLine());
+                if (material.Quantidade < 0)
                 {
                     Console.WriteLine("Quantidade do material não pode ser negativa.");
                     return;
                 }
 
                 Console.WriteLine("Digite o estoque mínimo do material:");
-                int estoqueMinimo = Convert.ToInt32(Console.ReadLine());
-                if (estoqueMinimo < 0)
+                material.EstoqueMinimo = Convert.ToInt32(Console.ReadLine());
+                if (material.EstoqueMinimo < 0)
                 {
                     Console.WriteLine("Estoque mínimo do material não pode ser negativo.");
                     return;
                 }
 
-                Materiais material = new Materiais()
-                {
-                    Nome = nome,
-                    Categoria = categoria,
-                    Quantidade = quantidade,
-                    EstoqueMinimo = estoqueMinimo
-                };
                 Materiais.Add(material);
                 Console.WriteLine("Material cadastrado com sucesso!");
                 Console.WriteLine("Deseja cadastrar outro material?\n1 - Sim\n2 - Não");
                 sistema.Opcao = Convert.ToInt32(Console.ReadLine());
             } while (sistema.Opcao == 1);
+        }
+
+        public void AlterarMaterial()
+        {
+            Console.Clear();
+
+            Console.WriteLine("=====================");
+            Console.WriteLine("ALTERAR MATERIAL");
+            Console.WriteLine("=====================");
+
+            Console.WriteLine("Digite o código do material que deseja alterar:");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            bool encontrado = false;
+
+            foreach (Materiais material in Materiais)
+            {
+                if (material.Codigo == codigo)
+                {
+                    encontrado = true;
+
+                    Console.WriteLine("\nMaterial encontrado:");
+                    material.ExibirDados();
+
+                    Console.WriteLine("Digite o novo nome:");
+                    material.Nome = Console.ReadLine();
+
+                    Console.WriteLine("Digite a nova categoria:");
+                    material.Categoria = Console.ReadLine();
+
+                    Console.WriteLine("Digite a nova quantidade:");
+                    material.Quantidade = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("Digite o novo estoque mínimo:");
+                    material.EstoqueMinimo = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("\nMaterial alterado com sucesso!");
+
+                    break;
+                }
+            }
+
+            if (encontrado == false)
+            {
+                Console.WriteLine("\nMaterial não encontrado.");
+            }
+
+            Console.WriteLine("\nPressione ENTER para voltar ao menu...");
+            Console.ReadKey();
+        }
+
+        public void RemoverMaterial()
+        {
+            Console.Clear();
+
+            Console.WriteLine("=====================");
+            Console.WriteLine("REMOVER MATERIAL");
+            Console.WriteLine("=====================");
+
+            Console.WriteLine("Digite o código do material que deseja remover:");
+            int codigo = Convert.ToInt32(Console.ReadLine());
+
+            Materiais materialRemover = null;
+
+            foreach (Materiais material in Materiais)
+            {
+                if (material.Codigo == codigo)
+                {
+                    materialRemover = material;
+                    break;
+                }
+            }
+
+            if (materialRemover != null)
+            {
+                Console.WriteLine("\nMaterial encontrado:");
+                materialRemover.ExibirDados();
+
+                Console.WriteLine("Deseja realmente remover este material?");
+                Console.WriteLine("1 - Sim");
+                Console.WriteLine("2 - Não");
+
+                int opcao = Convert.ToInt32(Console.ReadLine());
+
+                if (opcao == 1)
+                {
+                    Materiais.Remove(materialRemover);
+                    Console.WriteLine("\nMaterial removido com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("\nRemoção cancelada.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nMaterial não encontrado.");
+            }
+
+            Console.WriteLine("\nPressione ENTER para voltar ao menu...");
+            Console.ReadKey();
         }
 
         public void ListarMateriais()
