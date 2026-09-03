@@ -8,6 +8,7 @@ public class Materiais
 
     public void ExibirDados()
     {
+        Console.WriteLine($"Código: {Id}");
         Console.WriteLine($"Nome: {Nome}");
         Console.WriteLine($"Categoria: {Categoria}");
         Console.WriteLine($"Quantidade: {Quantidade}");

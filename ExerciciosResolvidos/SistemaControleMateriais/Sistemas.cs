@@ -19,22 +19,39 @@ public class Sistemas
                 case 1:
                     CadastrarMaterial();
                     break;
+
                 case 2:
                     ListarMateriais();
                     break;
+
                 case 3:
                     ExibirResumo();
                     break;
+
                 case 4:
+                    PesquisarMaterial();
+                    break;
+
+                case 5:
+                    AlterarMaterial();
+                    break;
+
+                case 6:
+                    ExcluirMaterial();
+                    break;
+
+                case 7:
                     ExibirInformacoes();
                     break;
+
                 case 0:
                     Encerrar();
                     break;
+
                 default:
                     Console.WriteLine("Opção inválida!");
-                    Console.WriteLine("Escolha uma opção entre 0 e 4.");
-                    Console.ReadKey();
+                    Console.WriteLine("Escolha uma opção entre 0 e 7.");
+                    Console.ReadLine();
                     break;
             }    
         }        
@@ -45,7 +62,7 @@ public class Sistemas
         Console.Clear();
         Console.WriteLine("=====================\nCONTROLE DE MATERIAIS TECHSCHOOL\n=====================");
         Console.WriteLine();
-        Console.WriteLine("1 - Cadastrar Material\n2 - Listar Materiais\n3 - Exibir resumo do estoque\n4 - Exibir informações do sistema\n0 - Encerrar");
+        Console.WriteLine("1 - Cadastrar Material\n2 - Listar Materiais\n3 - Exibir resumo do estoque\n4 - Pesquisar material por Id\n5 - Alterar material\n6 - Excluir material\n7 - Exibir informações do sistema\n0 - Encerrar");
         Console.WriteLine();
         Console.WriteLine("Digite a opção desejada:");
         Opcao = Convert.ToInt32(Console.ReadLine());
@@ -94,6 +111,162 @@ public class Sistemas
             Console.WriteLine("Deseja cadastrar outro material?\n1 - Sim\n2 - Não");
             sistema.Opcao = Convert.ToInt32(Console.ReadLine());
         } while (sistema.Opcao == 1);
+    }
+
+    public void PesquisarMaterial()
+    {
+        Console.Clear();
+        Console.WriteLine("========================================");
+        Console.WriteLine(" PESQUISAR MATERIAL");
+        Console.WriteLine("========================================");
+
+        Console.Write("Digite o Id do material: ");
+        int.TryParse(Console.ReadLine(), out int id);
+
+        Materiais? material = Banco.BuscarMaterialPorId(id);
+
+        if (material == null)
+        {
+            Console.WriteLine("Material não encontrado.");
+        }
+        else
+        {
+            Console.WriteLine();
+            material.ExibirDados();
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Pressione ENTER para voltar ao menu.");
+        Console.ReadLine();
+    }
+
+    public void ExcluirMaterial()
+    {
+        Console.Clear();
+        Console.WriteLine("========================================");
+        Console.WriteLine(" EXCLUIR MATERIAL");
+        Console.WriteLine("========================================");
+
+        Console.Write("Digite o Id do material: ");
+        int.TryParse(Console.ReadLine(), out int id);
+
+        Materiais? material = Banco.BuscarMaterialPorId(id);
+
+        if (material == null)
+        {
+            Console.WriteLine("Material não encontrado.");
+            Console.ReadLine();
+            return;
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("MATERIAL ENCONTRADO");
+        material.ExibirDados();
+
+        Console.WriteLine();
+        Console.WriteLine("Deseja realmente excluir este material?");
+        Console.WriteLine("1 - Sim");
+        Console.WriteLine("2 - Não");
+        Console.Write("Digite uma opção: ");
+
+        string resposta = Console.ReadLine() ?? "2";
+
+        if (resposta == "1")
+        {
+            bool excluido = Banco.ExcluirMaterial(id);
+
+            if (excluido)
+                Console.WriteLine("Material excluído com sucesso!");
+            else
+                Console.WriteLine("Não foi possível excluir o material.");
+        }
+        else
+        {
+            Console.WriteLine("Exclusão cancelada.");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Pressione ENTER para voltar ao menu.");
+        Console.ReadLine();
+    }
+
+    public void AlterarMaterial()
+    {
+        Console.Clear();
+        Console.WriteLine("========================================");
+        Console.WriteLine(" ALTERAR MATERIAL");
+        Console.WriteLine("========================================");
+
+        Console.Write("Digite o Id do material: ");
+        int.TryParse(Console.ReadLine(), out int id);
+
+        Materiais? material = Banco.BuscarMaterialPorId(id);
+
+        if (material == null)
+        {
+            Console.WriteLine("Material não encontrado.");
+            Console.ReadLine();
+            return;
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("DADOS ATUAIS");
+        material.ExibirDados();
+        Console.WriteLine();
+
+        Console.Write("Novo nome: ");
+        string novoNome = Console.ReadLine() ?? "";
+
+        Console.Write("Nova categoria: ");
+        string novaCategoria = Console.ReadLine() ?? "";
+
+        Console.Write("Nova quantidade: ");
+        int.TryParse(Console.ReadLine(), out int novaQuantidade);
+
+        Console.Write("Novo estoque mínimo: ");
+        int.TryParse(Console.ReadLine(), out int novoEstoqueMinimo);
+
+        if (string.IsNullOrWhiteSpace(novoNome) ||
+            string.IsNullOrWhiteSpace(novaCategoria))
+        {
+            Console.WriteLine("Nome e categoria devem ser preenchidos.");
+        }
+        else if (novaQuantidade < 0 || novoEstoqueMinimo < 0)
+        {
+            Console.WriteLine("Quantidade e estoque mínimo não podem ser negativos.");
+        }
+        else
+        {
+            Console.WriteLine();
+            Console.WriteLine("Deseja confirmar a alteração?");
+            Console.WriteLine("1 - Sim");
+            Console.WriteLine("2 - Não");
+
+            string resposta = Console.ReadLine() ?? "2";
+
+            if (resposta == "1")
+            {
+                material.Nome = novoNome;
+                material.Categoria = novaCategoria;
+                material.Quantidade = novaQuantidade;
+                material.EstoqueMinimo = novoEstoqueMinimo;
+
+                bool alterado = Banco.AlterarMaterial(material);
+
+                if (alterado)
+                    Console.WriteLine("Material alterado com sucesso!");
+                else
+                    Console.WriteLine("Não foi possível alterar o material.");
+            }
+            else
+            {
+                Console.WriteLine("Alteração cancelada.");
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Pressione ENTER para voltar ao menu.");
+        Console.ReadLine();
     }
 
     public void ListarMateriais()
@@ -171,9 +344,10 @@ public class Sistemas
         Console.WriteLine("=====================\nINFORMAÇÕES DO SISTEMA\n======================");
         Console.WriteLine();
         Console.WriteLine("Sistema: Controle de Materiais TechSchool");
-        Console.WriteLine("Versão: 1.0");
-        Console.WriteLine("Tipo: Aplicação de Console");
-        Console.WriteLine("Finalidade: Cadastro e listagem de materiais");
+        Console.WriteLine("Versão: 3.0");
+        Console.WriteLine("Tipo: Aplicação de console");
+        Console.WriteLine("Persistência: SQLite");
+        Console.WriteLine("Operações: Cadastro, pesquisa, alteração, exclusão e listagem");
         Console.WriteLine();
         Console.WriteLine("Pressione ENTER para voltar ao menu principal...");
         Console.ReadKey();
